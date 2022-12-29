@@ -1,7 +1,50 @@
 .menu{
+    padding-bottom: 3rem;
     height: 100%;
-    margin-left: 8rem;
 }
 .menu .card{
-    width: 18rem;
+    color: white;
+    width: 60%;
+    background-color: #1A1D1E;
+}
+.button{
+    background-color: transparent;
+}
+/* Large  */
+@media only screen and (min-width: 768px) {
+    .menu{
+        margin-left: 8rem;
+        padding-top: 3rem;
+    }
+    .menu .card{
+        width: 70%;
+    }
+}
+/* Medium */
+@media only screen and (max-width: 768px) {
+    .menu .card{
+        width: 80%;
+    }
+    .menu{
+        margin-left: 5rem;
+        padding-top: 2rem;
+    }
+    .place{
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+/* Small */
+@media only screen and (max-width: 576px) {
+    .menu{
+        margin-left: 0px;
+        padding-top: 1rem;
+    }
+    .menu .card{
+        width: 100%;
+    }
+    .place{
+        flex-direction: column;
+        justify-content: center;
+    }
 }

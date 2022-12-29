@@ -1,6 +1,6 @@
 .nav-bar{
     background-color: #1F2427;
-    width: 8rem;
+    z-index: 1;
 }
 .nav-item a{
     color: aliceblue;
@@ -12,15 +12,16 @@
 .nav-link:hover{
     color: aliceblue !important;
 }
-
+/* Large  */
 @media only screen and (min-width: 768px) {
     .nav-bar{
         position: fixed;
         flex-direction: column;
         height: 100%;
+        width: 8rem;
     }
 }
-
+/* Medium */
 @media only screen and (max-width: 768px) {
     .nav-link div div{
         display: none;
@@ -29,10 +30,11 @@
         position: fixed;
         height: 100%;
         flex-direction: column;
+        width: 5rem;
     }
 }
-
-@media only screen and (max-width: 450px) {
+/* Small */
+@media only screen and (max-width: 576px) {
     .nav-bar{
         position: fixed;
         flex-direction: row;
