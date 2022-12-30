@@ -1,0 +1,47 @@
+.modal {
+  color: white;
+}
+.modal div {
+  background-color: #1a1d1e;
+}
+select.form-control {
+  background-color: #3c3e40;
+  background: #3c3e40;
+}
+select {
+  font-family: "FontAwesome", "Second Font name";
+}
+
+textarea.form-control, input.form-control {
+  background-color: #3c3e40;
+  background: #3c3e40;
+  border: none;
+  color: white;
+}
+textarea.form-control:focus, input.form-control:focus {
+  background-color: #3c3e40;
+  background: #3c3e40;
+  color: white;
+}
+
+/* Large  */
+@media only screen and (min-width: 768px) {
+    Form{
+        padding: 48px;
+    }
+}
+/* Medium */
+@media only screen and (max-width: 768px) {
+    Form{
+        padding: 24px;
+    }    
+}
+/* Small */
+@media only screen and (max-width: 576px) {
+    Form{
+        padding: 12px;
+    }
+    .btn-group label{
+        padding:0px;
+    }
+}

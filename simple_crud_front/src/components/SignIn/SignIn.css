@@ -1,0 +1,35 @@
+Form{
+    background-color: #1A1D1E;
+    color: white;
+}
+.form-text span{
+    cursor: pointer;
+}
+
+/* Large  */
+@media only screen and (min-width: 768px) {
+    Form{
+        padding: 48px;
+    }
+    .login{
+        padding: 48px;
+    }
+}
+/* Medium */
+@media only screen and (max-width: 768px) {
+    .login{
+        padding: 36px;
+    }
+    Form{
+        padding: 36px;
+    }    
+}
+/* Small */
+@media only screen and (max-width: 576px) {
+    .login{
+        padding: 12px;
+    }    
+    Form{
+        padding: 24px;
+    }
+}

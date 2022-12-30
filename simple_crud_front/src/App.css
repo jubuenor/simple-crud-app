@@ -5,4 +5,21 @@
   padding: 0;
   height: 100%;
 }
-
+/* Large  */
+@media only screen and (min-width: 768px) {
+  .main{
+      margin-left: 8rem;
+  }
+}
+/* Medium */
+@media only screen and (max-width: 768px) {
+  .main{
+      margin-left: 5rem;
+  }
+}
+/* Small */
+@media only screen and (max-width: 576px) {
+  .main{
+      margin-left: 0px;
+  }
+}
