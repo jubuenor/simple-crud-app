@@ -9,7 +9,7 @@ let response= {
 
 exports.login = (req,res,next)=>{
     let hashedpass = crypto.createHash("sha512").update(req.body.password).digest("hex");
-    User.findOne({username:req.body.username, pass: hashedpass},(err,user)=>{
+    User.findOne({username:req.body.username, password: hashedpass},(err,user)=>{
         let response={
             token:null
         }
@@ -71,11 +71,12 @@ exports.findOne = (req,res)=>{
 
 
 exports.update = (req,res)=>{
+    let hashedpass = crypto.createHash("sha512").update(req.body.password).digest("hex");
     let user = ({
         name: req.body.name,
         last_name: req.body.last_name,
         username: req.body.username,
-        password: req.body.password
+        password: hashedpass
     });
     User.findByIdAndUpdate(req.params.id,{$set: user},
         (err)=>{

@@ -6,11 +6,11 @@ import { FaSmile, FaSurprise, FaGrinHearts, FaGrinTears, FaFrown, FaMapMarkerAlt
 function Create({show,handleClose}) {
 
   const [post, setPost] = useState('');
-  const [place, setPlace] = useState('');
+  const [Location, setLocation] = useState('');
 
   const resetForm=()=>{
     setPost('');
-    setPlace('');
+    setLocation('');
   }
 
   return (
@@ -36,8 +36,8 @@ function Create({show,handleClose}) {
               <div className='col-xl-5 col-lg-5 col-sm-12 d-flex'>
                 <FaMapMarkerAlt size={30}></FaMapMarkerAlt>
                 <Form.Group className='ms-2'>
-                  <Form.Control as="input" onChange={(event)=>setPlace(event.target.value)}/>
-                  <Form.Text className='text-danger' muted={place.length<=26?true:false}>{place.length}/26</Form.Text>
+                  <Form.Control as="input" onChange={(event)=>setLocation(event.target.value)}/>
+                  <Form.Text className='text-danger' muted={Location.length<=26?true:false}>{Location.length}/26</Form.Text>
                 </Form.Group>
               </div>              
             </div>

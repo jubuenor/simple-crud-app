@@ -7,6 +7,7 @@ var database = require("./config/database");
 var auth = require("./auth/main_auth");
 
 var userRouter = require('./routes/users.router');
+var postRouter = require('./routes/posts.router');
 
 var app = express();
 
@@ -20,10 +21,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 database.mongoConnect();
 
-
 // Router
 
 app.use('/users',userRouter);
+app.use('/post',postRouter);
 
 app.use(auth);
 
