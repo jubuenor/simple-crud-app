@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var database = require("./config/database");
 var auth = require("./auth/main_auth");
+var cors = require("cors");
 
 var userRouter = require('./routes/users.router');
 var postRouter = require('./routes/posts.router');
@@ -17,6 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cors());
+
 // Mongo connection
 
 database.mongoConnect();
@@ -24,9 +27,8 @@ database.mongoConnect();
 // Router
 
 app.use('/users',userRouter);
-app.use('/post',postRouter);
-
 app.use(auth);
+app.use('/posts',postRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

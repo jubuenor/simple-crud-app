@@ -30,7 +30,8 @@ exports.create = (req,res)=>{
         name: req.body.name,
         last_name: req.body.last_name,
         username: req.body.password,
-        password: hashedpass
+        password: hashedpass,
+        likes:[]
     });
     user.save((err)=>{
         if(err){
@@ -76,7 +77,8 @@ exports.update = (req,res)=>{
         name: req.body.name,
         last_name: req.body.last_name,
         username: req.body.username,
-        password: hashedpass
+        password: hashedpass,
+        likes: []
     });
     User.findByIdAndUpdate(req.params.id,{$set: user},
         (err)=>{

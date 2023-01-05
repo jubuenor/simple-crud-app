@@ -1,8 +1,8 @@
-.menu{
+.home{
     padding-bottom: 3rem;
     height: 100%;
 }
-.menu .card{
+.home .card{
     color: white;
     width: 60%;
     background-color: #1A1D1E;
@@ -12,19 +12,19 @@
 }
 /* Large  */
 @media only screen and (min-width: 768px) {
-    .menu{
+    .home{
         padding-top: 3rem;
     }
-    .menu .card{
+    .home .card{
         width: 70%;
     }
 }
 /* Medium */
 @media only screen and (max-width: 768px) {
-    .menu .card{
+    .home .card{
         width: 80%;
     }
-    .menu{
+    .home{
         padding-top: 2rem;
     }
     .place{
@@ -34,10 +34,10 @@
 }
 /* Small */
 @media only screen and (max-width: 576px) {
-    .menu{
+    .home{
         padding-top: 1rem;
     }
-    .menu .card{
+    .home .card{
         width: 100%;
     }
     .place{

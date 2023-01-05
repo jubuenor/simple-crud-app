@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Card, Button } from "react-bootstrap";
-import "./Menu.css";
+import "./Home.css";
 import {FaSmileBeam, FaMapMarkerAlt, FaRegHeart, FaHeart} from "react-icons/fa";
 
-function Menu() {
+function Home() {
   return (
-    <div className="menu d-flex flex-column align-items-center">
+    <div className="home d-flex flex-column align-items-center">
       <Card className="p-3 mb-2 mt-2">
         <Container className="row justify-content-between">
           <Container className="col-xl-6 col-md-12">
@@ -230,4 +230,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default Home;

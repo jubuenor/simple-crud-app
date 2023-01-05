@@ -1,18 +1,10 @@
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import Menu from './components/Menu/Menu';
-import Login from './components/SignIn/SignIn';
-import Register from './components/SignUp/SignUp';
+import AppRouter from './router/router';
 
 function App() {
   return (
     <div className="App">
-      <Navbar></Navbar>
-      <div className='main'>
-        
-        <Register></Register>
-
-      </div>   
+      <AppRouter></AppRouter>   
     </div>
   );
 }
