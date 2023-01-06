@@ -19,7 +19,7 @@ export function getSession(){
 export const fetchUser = async()=>{
     const token=getSession();
     return await axios.get(`${APIHOST}/users/${token}`,);
-  }
+}
 
 function renewSesion(){
     const session= getSession();

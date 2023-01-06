@@ -25,9 +25,7 @@ function Register() {
         username:username,
         password:password
       }).then((response)=>{
-        if(response.data.succ){
-          console.log("succ")
-        }else{
+        if(!response.data.succ){
           setError(true)
         }
       }).catch((error)=>{

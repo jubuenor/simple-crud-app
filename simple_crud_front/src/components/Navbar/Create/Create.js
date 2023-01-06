@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Create.css';
 import { Modal, Button, Form, ButtonGroup } from 'react-bootstrap'
 import { FaSmile, FaSurprise, FaGrinHearts, FaGrinTears, FaFrown, FaMapMarkerAlt } from 'react-icons/fa';
 import { request, fetchUser} from '../../../helper/helper';
 
-function Create({show,handleClose}) {
+function Create({show,handleClose,setUpdate,update}) {
 
   const [post, setPost] = useState('');
   const [feeling, setFeeling] = useState(0);
   const [location, setLocation] = useState('');
-  const [user,setUser] = useState(()=>fetchUser().then((res)=>setUser(res.data)));
+  const [user,setUser] = useState({});
 
   const resetForm=()=>{
     setPost('');
@@ -17,7 +17,13 @@ function Create({show,handleClose}) {
     setFeeling(0);
   }  
 
+  useEffect(()=>{
+    fetchUser().then((res)=>setUser(res.data));
+  },[setUser])
+
+
   const createPost=()=>{
+    setUpdate(!update);
     request.post('/posts/create',{
       user:{
         id:user._id,
@@ -27,6 +33,7 @@ function Create({show,handleClose}) {
       },
       body:post,
       feeling:feeling,
+      location:location,
       date:new Date().toLocaleString(),
       like_count:0,
     }).then((response)=>{

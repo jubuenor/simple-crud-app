@@ -11,21 +11,20 @@ const checkAuth=()=>{
   return getSession()?true:false;
 }
 
-
-
 function AppRouter() {
   const [isLogged, setLogged]=useState(checkAuth());
+  const [update, setUpdate ]=useState(false);
   
   return (
     <BrowserRouter>
-      <Navbar isLogged={isLogged}></Navbar>
+      <Navbar isLogged={isLogged} setUpdate={setUpdate} update={update}></Navbar>
         <div className='main'>
         <Routes>
             <Route exact path='/' element={<Privaterouter></Privaterouter>}>
               {["/", "/home"].map((path, index) => {
                 return (
                   <Route path={path} element={
-                      <Home></Home>
+                      <Home update={update}></Home>
                     }
                     key={index}
                   />

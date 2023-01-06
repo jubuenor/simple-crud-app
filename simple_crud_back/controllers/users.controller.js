@@ -72,13 +72,12 @@ exports.findOne = (req,res)=>{
 
 
 exports.update = (req,res)=>{
-    let hashedpass = crypto.createHash("sha512").update(req.body.password).digest("hex");
     let user = ({
         name: req.body.name,
         last_name: req.body.last_name,
         username: req.body.username,
-        password: hashedpass,
-        likes: []
+        password: req.body.password,
+        likes: req.body.likes
     });
     User.findByIdAndUpdate(req.params.id,{$set: user},
         (err)=>{

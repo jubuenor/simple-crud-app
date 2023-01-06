@@ -28,6 +28,13 @@ exports.create = (req,res)=>{
     });
 }
 
+exports.find =(req,res)=>{
+    Post.find((err,post)=>{
+        res.json(post);
+    });
+}
+
+
 exports.remove = (req,res)=>{
         User.findByIdAndRemove(req.params.id,
             (err)=>{

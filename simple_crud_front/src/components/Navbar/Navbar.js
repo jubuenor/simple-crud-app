@@ -23,7 +23,7 @@ function Navbar(props) {
         <Container className="justify-content-center">
         {props.isLogged?
         <>
-        <Create show={show} handleClose={handleClose}></Create>
+        <Create show={show} handleClose={handleClose} setUpdate={props.setUpdate} update={props.update}></Create>
         <Nav.Item>
             <Nav.Link className="rounded nav-link" onClick={handleShow}>
               <div className="d-flex">
