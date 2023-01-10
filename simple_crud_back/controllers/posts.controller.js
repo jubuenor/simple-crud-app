@@ -52,15 +52,15 @@ exports.remove = (req,res)=>{
 }
 
 exports.update = (req,res)=>{
-    let user = ({
+    let post = ({
         user: req.body.user,
         body: req.body.body,
         feeling: req.body.feeling,
         location: req.body.location,
-        date: req.body.location,
-        like_count: req.body.location
+        date: req.body.date,
+        like_count: req.body.like_count
     });
-    User.findByIdAndUpdate(req.params.id,{$set: user},
+    Post.findByIdAndUpdate(req.params.id,{$set: post},
         (err)=>{
         if(err){
             console.log(err),

@@ -20,10 +20,7 @@ function Create({show,handleClose,setUpdate,update}) {
   useEffect(()=>{
     fetchUser().then((res)=>setUser(res.data));
   },[setUser])
-
-
   const createPost=()=>{
-    setUpdate(!update);
     request.post('/posts/create',{
       user:{
         id:user._id,
@@ -38,6 +35,10 @@ function Create({show,handleClose,setUpdate,update}) {
       like_count:0,
     }).then((response)=>{
       console.log(response);
+    }).catch((error)=>{
+      console.log(error);
+    }).finally(()=>{
+      setUpdate(!update);
     })
     handleClose();
     resetForm();
@@ -79,7 +80,7 @@ function Create({show,handleClose,setUpdate,update}) {
           
           </Modal.Body>
         <Modal.Footer>
-          <Button variant="light" onClick={createPost}>
+          <Button variant="light" onClick={createPost} disabled={post===''}>
             Post
           </Button>
         </Modal.Footer>

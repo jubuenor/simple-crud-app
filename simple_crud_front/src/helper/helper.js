@@ -49,4 +49,12 @@ export const request={
             }
         });
     },
+    put:function(services,body){
+        let token = renewSesion();
+        return axios.put(`${APIHOST}${services}`,body,{
+            headers:{
+                Authorization: `Bearer ${token}`
+            }
+        });
+    },
 }
