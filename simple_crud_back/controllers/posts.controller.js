@@ -36,7 +36,8 @@ exports.find =(req,res)=>{
 
 
 exports.remove = (req,res)=>{
-        User.findByIdAndRemove(req.params.id,
+    console.log(req.params);
+        Post.findByIdAndRemove(req.params.id,
             (err)=>{
             if(err){
                 console.log(err),

@@ -1,25 +1,21 @@
-.home{
-    padding-bottom: 3rem;
-    height: 100%;
-}
-.button{
-    background-color: transparent;
+.about{
+    color: white;
 }
 /* Large  */
 @media only screen and (min-width: 768px) {
-    .home{
+    .about{
         padding-top: 3rem;
     }
 }
 /* Medium */
 @media only screen and (max-width: 768px) {
-    .home{
+    .about{
         padding-top: 2rem;
     }
 }
 /* Small */
 @media only screen and (max-width: 576px) {
-    .home{
+    .about{
         padding-top: 1rem;
     }
 }

@@ -1,0 +1,35 @@
+
+.card{
+    color: white;
+    width: 60%;
+    background-color: #1A1D1E !important;
+}
+.button{
+    background-color: transparent;
+}
+/* Large  */
+@media only screen and (min-width: 768px) {
+    .card{
+        width: 70%;
+    }
+}
+/* Medium */
+@media only screen and (max-width: 768px) {
+    .card{
+        width: 80%;
+    }
+    .location{
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+/* Small */
+@media only screen and (max-width: 576px) {
+    .card{
+        width: 100%;
+    }
+    .location{
+        flex-direction: column;
+        justify-content: center;
+    }
+}

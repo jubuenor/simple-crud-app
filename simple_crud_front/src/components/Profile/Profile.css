@@ -1,0 +1,13 @@
+.profile{
+    padding-top: 3rem;
+}
+
+.profile .list-group-item{
+    
+    background-color: #1A1D1E;
+    color: white;
+}
+
+.main{
+    padding-bottom: 2rem;
+}

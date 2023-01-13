@@ -71,7 +71,7 @@ function Navbar(props) {
         
         <Container>
           <Nav.Item>
-            <Link to='info' className="rounded nav-link info">
+            <Link to='/about' className="rounded nav-link info">
               <div className="d-flex">
                 <FaInfoCircle size={30} color="aliceblue"></FaInfoCircle>
                 <div className="ms-3 mt-2">More</div>

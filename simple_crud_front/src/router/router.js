@@ -5,7 +5,9 @@ import Login from '../components/SignIn/SignIn';
 import Register from '../components/SignUp/SignUp';
 import Navbar from '../components/Navbar/Navbar';
 import Privaterouter from '../components/auth/Privaterouter';
+import Profile from '../components/Profile/Profile';
 import {getSession} from '../helper/helper';
+import About from '../components/About/About';
 
 const checkAuth=()=>{
   return getSession()?true:false;
@@ -30,9 +32,11 @@ function AppRouter() {
                   />
                 );
               })}
+              <Route exact path='/profile' element={<Profile></Profile>}></Route>
             </Route>
             <Route exact path="/login" element={<Login setLogged={setLogged}></Login>}></Route>  
             <Route exact path='/signup' element={<Register></Register>}></Route>     
+            <Route exact path='/about' element={<About></About>}></Route>
         </Routes>
         </div>
         

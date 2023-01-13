@@ -5,7 +5,6 @@ import { FaSmile, FaSurprise, FaGrinHearts, FaGrinTears, FaFrown, FaMapMarkerAlt
 import { request, fetchUser} from '../../../helper/helper';
 
 function Create({show,handleClose,setUpdate,update}) {
-
   const [post, setPost] = useState('');
   const [feeling, setFeeling] = useState(0);
   const [location, setLocation] = useState('');

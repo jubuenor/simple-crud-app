@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Form, Button } from 'react-bootstrap';
+import {Form, Button,  Modal } from 'react-bootstrap';
 import './SignUp.css';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
@@ -8,6 +8,15 @@ import Loading from '../Loading/Loading';
 
 const {APIHOST}=app;
 
+function MsgModal({show,handleClose,msg}){
+  return(
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>{msg}</Modal.Title>
+      </Modal.Header>
+    </Modal>
+  )
+}
 function Register() {
   const [name,setName]= useState("");
   const [last_name,setLast_name]= useState("");
@@ -15,6 +24,9 @@ function Register() {
   const [password,setPassword]= useState("");
   const [error,setError] = useState(false);
   const [loading,setLoading] = useState(false);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const [msg,setMsg]=useState("")
 
   const signUp=()=>{
     if(name !=="" && last_name !== "" && username !== "" && password !== ""){
@@ -27,11 +39,15 @@ function Register() {
       }).then((response)=>{
         if(!response.data.succ){
           setError(true)
+        }else{
+          setMsg("User successfully created");
         }
       }).catch((error)=>{
         setError(true);
+        setMsg("Error creating user");
       }).finally(()=>{
         setLoading(false);
+        setShow(true);
       })
     }else{
       setError(true);
@@ -41,6 +57,7 @@ function Register() {
 
   return (
     <div className='register container-sm'>
+      <MsgModal show={show} handleClose={handleClose} msg={msg}></MsgModal>
       <Loading show={loading}></Loading>
       <Form className='rounded-3'>
         <div className='mb-5'>

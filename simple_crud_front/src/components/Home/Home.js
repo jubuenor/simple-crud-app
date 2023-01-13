@@ -16,20 +16,24 @@ function Home(props) {
   const [user, setUser]=useState({});
 
   const fetchPosts=()=>{
-    setLoading(true);
+    setPosts([]);
     request.get('/posts/')
     .then((response)=>{
       setPosts(response.data.reverse());
-      setLoading(false);
     }).catch((error)=>{
       console.log(error);
     });
   }
   useEffect(() => {
-    setPosts([]);
-    fetchUser()
-    .then((res)=>setUser(res.data));
-    fetchPosts();
+    setLoading(true);
+    Promise.all(
+      [
+        fetchUser().then((res)=>setUser(res.data)),
+        fetchPosts()
+      ]
+    ).then(()=>{
+      setLoading(false);
+    })
   },[props.update]);
 
   const like_post=(id,liked,index)=>{
@@ -64,7 +68,7 @@ function Home(props) {
   return (
     <div className="home d-flex flex-column align-items-center">
       <Loading show={loading}></Loading>
-      {feed()}
+      {loading?null:feed()}
 
     </div>
   );

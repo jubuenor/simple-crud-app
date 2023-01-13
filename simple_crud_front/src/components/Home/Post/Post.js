@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Container, Card, Button } from "react-bootstrap";
-import {FaSmileBeam, FaMapMarkerAlt, FaRegHeart, FaHeart,FaSmile, FaSurprise, FaGrinHearts, FaGrinTears, FaFrown, } from "react-icons/fa";
+import { FaMapMarkerAlt, FaRegHeart, FaHeart,FaSmile, FaSurprise, FaGrinHearts, FaGrinTears, FaFrown, } from "react-icons/fa";
+import './Post.css';
 
 function Post(props) {
     const [liked,setLiked]=useState(props.isLiked);
@@ -34,7 +35,7 @@ function Post(props) {
           <Container className={`col-xl-5 col-md-11 d-flex ${props.post.location&&feeling(props.post.feeling)?'justify-content-between':'justify-content-center'} me-4`}>
             {props.post.location?
             <>
-            <div className="d-flex place">
+            <div className="d-flex location">
                 <div>
                 <FaMapMarkerAlt size={30}></FaMapMarkerAlt>
                 </div>

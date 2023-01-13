@@ -57,4 +57,17 @@ export const request={
             }
         });
     },
+    delete:function(services){
+        let token = renewSesion();
+        return axios.delete(`${APIHOST}${services}`,{
+            headers:{
+                Authorization: `Bearer ${token}`
+            }
+        });
+    },
+}
+
+export function logout(){
+    cookies.remove('_s');
+    window.location.reload();
 }

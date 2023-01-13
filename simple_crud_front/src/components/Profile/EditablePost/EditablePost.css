@@ -1,0 +1,39 @@
+textarea.form-control:disabled, input.form-control:disabled {
+    background-color: #3c3e40;
+    background: #3c3e40;
+    color: white;
+  }
+
+  .editable-post{
+    background-color: #1A1D1E;
+  }
+  /* Large  */
+@media only screen and (min-width: 768px) {
+  .editable-post {
+    flex-direction: row;
+  }
+  .btns{
+    flex-direction: column;
+  }
+  
+}
+/* Medium */
+@media only screen and (max-width: 768px) {
+  .editable-post {
+    flex-direction: row;
+  }
+  .btns{
+    flex-direction: column;
+  }
+}
+/* Small */
+@media only screen and (max-width: 576px) {
+  .editable-post{
+    flex-direction: column;
+  }
+  .btns{
+    flex-direction: row;
+    width: 100%;
+  }
+  
+}
