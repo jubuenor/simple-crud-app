@@ -60,7 +60,7 @@ return (
             {disabled?
             <>
             <Button className='btn-sm m-2' variant='outline-light' onClick={()=>setDisabled(false)}><FaEdit size={20}></FaEdit></Button>
-            <Button className='btn-sm m-2'  variant='danger outline-light' onClick={props.deletePost}><FaTrash size={20}></FaTrash></Button>
+            <Button className='btn-sm m-2'  variant='danger outline-light' onClick={()=>props.deletePost(props.post)}><FaTrash size={20}></FaTrash></Button>
             </>
             :
             <>

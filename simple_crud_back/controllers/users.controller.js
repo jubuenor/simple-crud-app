@@ -29,7 +29,7 @@ exports.create = (req,res)=>{
     let user = new User({
         name: req.body.name,
         last_name: req.body.last_name,
-        username: req.body.password,
+        username: req.body.username,
         password: hashedpass,
         likes:[]
     });
