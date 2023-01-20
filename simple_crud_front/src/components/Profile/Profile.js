@@ -32,7 +32,9 @@ function Profile() {
       setLoading(true);
       Promise.all(
         [
-          fetchUser().then((res)=>setUser(res.data)),
+          fetchUser().then((res)=>{let u=res.data;
+            u.likes=u.likes.reverse();
+            setUser(u);}),
           fetchPosts()
         ]
       ).then(()=>{
@@ -61,10 +63,10 @@ function Profile() {
       })
     }
     const mylikes=()=>user.likes.map((like,index)=>{
-      const post=posts.filter((post)=>like===post._id);
+      const post=posts.find((post)=>like===post._id);
         if(post){
             return(
-              <Post isLiked={true} post={post[0]} like_post={like_post} key={index} index={index}></Post>
+              <Post isLiked={true} post={post} like_post={like_post} key={index} index={index}></Post>
             )
         }else{
           return null;
@@ -113,8 +115,8 @@ function Profile() {
         :show==='about'?
         <ListGroup className='mb-3 w-100'>
             <ListGroup.Item>Name: {user.name}</ListGroup.Item>
-            <ListGroup.Item>Last name: {user.name}</ListGroup.Item>
-            <ListGroup.Item>Username: {user.name}</ListGroup.Item>
+            <ListGroup.Item>Last name: {user.last_name}</ListGroup.Item>
+            <ListGroup.Item>Username: {user.username}</ListGroup.Item>
         </ListGroup>
         :show==='posts'?
         myposts()

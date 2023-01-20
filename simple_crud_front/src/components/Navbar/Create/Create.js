@@ -77,7 +77,7 @@ function Create({show,handleClose,setUpdate,update}) {
           
           </Modal.Body>
         <Modal.Footer>
-          <Button variant="light" onClick={createPost} disabled={post===''||post.length>250}>
+          <Button variant="light" onClick={createPost} disabled={post===''||post.length>250||location.length>26}>
             Post
           </Button>
         </Modal.Footer>
