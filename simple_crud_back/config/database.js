@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const host = "localhost";
+const host = "127.0.0.1";
 const port = "27017";
 const db = "crud";
 
