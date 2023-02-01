@@ -45,7 +45,7 @@ function Login(props) {
         props.setLogged(true);
         goHome();
       }else{
-        setError("Username or password incorrect");
+        setError("Incorrect username or password");
       }
     }).catch((validated)=>{
       setError("Error");

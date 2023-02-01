@@ -1,22 +1,14 @@
 import React, { useState } from 'react';
-import {Form, Button,  Modal } from 'react-bootstrap';
+import {Form, Button} from 'react-bootstrap';
 import './SignUp.css';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import app from '../../app.json';
 import Loading from '../Loading/Loading';
+import MsgModal from '../MsgModal/MsgModal';
 
 const {APIHOST}=app;
 
-function MsgModal({show,handleClose,msg}){
-  return(
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>{msg}</Modal.Title>
-      </Modal.Header>
-    </Modal>
-  )
-}
 function Register() {
   const [name,setName]= useState("");
   const [last_name,setLast_name]= useState("");

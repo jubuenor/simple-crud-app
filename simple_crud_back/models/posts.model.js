@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-    user:{ type : Array , "default" : [] },
+    user:{ type : Object , "default" : {} },
     body:{type:String, required:true, max: 250},
     feeling:{type:String, required:false, max: 60},
     location:{type:String, required:false, max: 26},

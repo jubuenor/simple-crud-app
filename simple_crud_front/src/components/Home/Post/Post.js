@@ -28,7 +28,7 @@ function Post(props) {
         <Container className="row justify-content-between">
           <Container className="col-xl-6 col-md-12">
             <h5 className="text-start">
-              {`${props.post.user[0].name} ${props.post.user[0].last_name}`} <span>@{props.post.user[0].username}</span>
+              {`${props.post.user.name} ${props.post.user.last_name}`} <span>@{props.post.user.username}</span>
             </h5>
             <p className="text-start">{props.post.date}</p>
           </Container>

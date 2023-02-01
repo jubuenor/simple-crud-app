@@ -1,23 +1,27 @@
 import React, {useState,useEffect} from 'react';
-import { Container, ListGroup, Button, ButtonGroup} from 'react-bootstrap';
+import { Container, Button, ButtonGroup} from 'react-bootstrap';
 import './Profile.css';
-import { request, fetchUser } from '../../helper/helper';
+import { request, fetchUser,logout  } from '../../helper/helper';
 import Loading from '../Loading/Loading';  
 import EditablePost from './EditablePost/EditablePost';
-import { logout } from '../../helper/helper';
 import {FaUser} from "react-icons/fa";
 import Post from '../Home/Post/Post';
 import axios from 'axios';
 import app from '../../app.json';
+import About from './About/About';
+import MsgModal from '../MsgModal/MsgModal';
 
 const {APIHOST}=app;
+
 
 function Profile() {
     const [show, setShow]=useState('about');
     const [loading, setLoading] = useState(false);
-
     const [posts, setPosts]=useState([]);
     const [user, setUser]=useState({});
+    const [showModal, setShowModal] = useState(false);
+    const handleClose = () => setShowModal(false);
+    const [msg,setMsg]=useState("")
   
     const fetchPosts=()=>{
       setPosts([]);
@@ -84,17 +88,32 @@ function Profile() {
     }
 
     const myposts=()=>posts.map((post,index)=>{
-      if(post.user[0].id===user._id){
+      if(post.user.id===user._id){
         return(
           <EditablePost post={post} key={index} user={user} deletePost={deletePost}></EditablePost>
         )
       }else{
         return null;
       }
-    })    
+    })
+    const updateInfo=(user)=>{
+      axios.put(`${APIHOST}/users/${user._id}`,
+      user
+      ).then((response)=>{
+        setUser(user);
+        if(response.data.succ){
+          setMsg("Information successfully updated");
+        }
+      }).catch((error)=>{
+        setMsg("Something went wrong");
+      }).finally(()=>setShowModal(true));
+
+  }
 
   return (
     <div className='profile container'>
+      
+        <MsgModal show={showModal} handleClose={handleClose} msg={msg}></MsgModal>
         <Loading show={loading}></Loading>
         <div className='mb-5'>
             <FaUser size={100} color='white'></FaUser>
@@ -113,11 +132,7 @@ function Profile() {
         {loading?
         null
         :show==='about'?
-        <ListGroup className='mb-3 w-100'>
-            <ListGroup.Item>Name: {user.name}</ListGroup.Item>
-            <ListGroup.Item>Last name: {user.last_name}</ListGroup.Item>
-            <ListGroup.Item>Username: {user.username}</ListGroup.Item>
-        </ListGroup>
+        <About user={user} updateInfo={updateInfo}></About>
         :show==='posts'?
         myposts()
         :mylikes()
