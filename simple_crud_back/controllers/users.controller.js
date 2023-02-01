@@ -73,8 +73,15 @@ exports.update = (req,res)=>{
             res.json(response)
             return;
         }
-        response.succ=true,
-        response.msg = "User successfully saved"
+        Posts.updateMany({ "user.id":{$eq:req.params.id}},{$set: {user:{id:req.params.id,name:req.body.name,last_name:req.body.last_name,username:req.body.username}}})
+        .then((res)=>{
+            response.succ=true,
+            response.msg = "User successfully saved"
+        }).catch((error)=>{
+            console.log(error)
+            response.succ = false,
+            response.msg = "Error saving user"
+        })
         res.json(response)
     });
 }
